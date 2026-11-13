@@ -1,0 +1,33 @@
+{
+  "name": "crossplatform-practice-03",
+  "version": "1.0.0",
+  "description": "Учебный файловый просмотрщик Electron, вариант 0",
+  "author": "Коромыслова Диана Дмитриевна, ТРПО23-2",
+  "private": true,
+  "main": "main.cjs",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac dmg --x64",
+    "dist:win": "electron-builder --win nsis --x64",
+    "pack": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "45.3.1",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "ru.fa.koromyslova.fileexplorer",
+    "productName": "Study Explorer",
+    "artifactName": "StudyExplorer-${version}-${os}-${arch}.${ext}",
+    "directories": { "output": "dist" },
+    "files": ["main.cjs", "preload.cjs", "files.cjs", "renderer.js", "index.html", "styles.css", "profile.json", "assets/**", "package.json"],
+    "asar": true,
+    "mac": { "target": "dmg", "category": "public.app-category.utilities", "identity": null },
+    "win": { "target": "nsis", "signAndEditExecutable": false },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true },
+    "linux": { "target": "AppImage", "category": "Utility" }
+  }
+}

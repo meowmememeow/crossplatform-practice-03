@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Study Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside>
+    <div class="brand"><span class="logo" aria-hidden="true">S</span>Study Explorer</div>
+    <div class="course">КРОССПЛАТФОРМЕННАЯ<br>РАЗРАБОТКА</div>
+    <div class="nav active">Файловый просмотрщик</div>
+    <div class="lesson"><span>Практическая работа</span><strong>03</strong><p>Electron · Вариант 0</p></div>
+    <div class="student"><strong id="student">Коромыслова Диана Дмитриевна</strong><span id="group">ТРПО23-2</span></div>
+  </aside>
+  <main>
+    <header><div><p class="eyebrow">РАБОЧЕЕ ПРОСТРАНСТВО</p><h1>Файлы и каталоги</h1><p class="muted">Откройте документ в привычной программе двойным щелчком.</p></div><span class="badge">Локальные файлы</span></header>
+    <section class="panel" aria-label="Содержимое каталога">
+      <div class="toolbar"><button id="choose" class="primary">Выбрать каталог</button><button id="refresh">Показать содержимое каталога</button><button id="parent">На уровень выше</button></div>
+      <div class="path"><span aria-hidden="true">▣</span><output id="path">Загрузка…</output></div>
+      <div class="list-head"><h2>Содержимое каталога <span id="count"></span></h2><button id="open" disabled>Открыть выбранное</button></div>
+      <div class="table-wrap"><table><thead><tr><th scope="col">Название</th><th scope="col">Тип</th><th scope="col">Размер</th><th scope="col">Изменён</th></tr></thead><tbody id="files"></tbody></table><p id="empty" hidden>В этом каталоге пока нет файлов.</p></div>
+      <p id="status" role="status" aria-live="polite">Чтение каталога…</p>
+    </section>
+    <footer><span>HTML · CSS · JavaScript</span><span id="versions"></span></footer>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>
